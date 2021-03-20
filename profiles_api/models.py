@@ -8,7 +8,7 @@ from django.conf import settings
 class UserProfileManager(BaseUserManager):
     """Manager for user profiles"""
 
-    def create_user(self, email, name, password=None):
+    def create_user(self, email, name, ID, DoB, password=None):
         """Creste a new user profile"""
         if not email:
             raise VAlueError('User must have an email address')
@@ -23,7 +23,7 @@ class UserProfileManager(BaseUserManager):
 
     def create_superuser(self, email, name, password):
         """Create and save a new superuser wiht given details"""
-        user = self.create_user(email, email, password)
+        user = self.create_user(email, password)
 
         user.is_superuser =True
         user.is_staff = True

@@ -6,6 +6,9 @@ from profiles_api import models
 class HelloSerializer(serializers.Serializer):
     """Serializes a name field for testing our APIView"""
     name = serializers.CharField(max_length=10)
+    # ID = serializers.CharField(max_length=13)
+    # DoB = serializers.DateTimeField()
+    # Email = serializers.EmailField()
 
 
 class UserProfileSerializer(serializers.ModelSerializer):
@@ -26,6 +29,8 @@ class UserProfileSerializer(serializers.ModelSerializer):
         user = models.UserProfile.objects.create_user(
             email = validated_data['email'],
             name = validated_data['name'],
+            # ID = validated_data['ID'],
+            # DoB = validated_data['DoB'],
             password = validated_data['password']
         )
 
